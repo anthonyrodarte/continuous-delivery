@@ -2,13 +2,14 @@ const { describe, before, after, it } = require('mocha')
 const { expect } = require('chai')
 const request = require('request')
 const createApp = require('../create-app')
+require('dotenv/config')
 
 describe('app', () => {
   const app = createApp()
   let server
 
   before(done => {
-    server = app.listen(3000, () => {
+    server = app.listen(process.env.PORT, () => {
       done()
     })
   })
@@ -21,10 +22,11 @@ describe('app', () => {
 
   describe('GET /', () => {
     it('GET /', done => {
-      request(`http://localhost:3000`, (err, res, body) => {
+      request(`http://localhost:${process.env.PORT}`, (err, res, body) => {
+        console.log(body)
         expect(err).equal(null)
         expect(res.statusCode).equal(200)
-        expect(body).have.keys('name', 'description')
+        expect(JSON.parse(body)).have.keys('name', 'description')
       })
       done()
     })
