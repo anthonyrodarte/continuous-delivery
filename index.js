@@ -1,14 +1,8 @@
-const express = require('express')
+require('dotenv/config')
+const createApp = require('./create-app')
 
-const app = express()
+const app = createApp()
 
-app.get('/', (req, res) => {
-  res.json({
-    name: 'continuous-integration',
-    description: 'A practice repository for testing and deployment.'
-  })
-})
-
-app.listen(3000, () => {
-  console.log('listening on 3000')
+app.listen(process.env.PORT, () => {
+  console.log('listening on port', process.env.PORT)
 })
