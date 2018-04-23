@@ -4,11 +4,7 @@ module.exports = function createApp() {
   const app = express()
 
   app.get('/', (req, res) => {
-    res.json({
-      name: 'continuous-integration',
-      description: 'A practice repository for testing and deployment.'
-    })
+    res.send('https://github.com/anthonyrodarte/continuous-delivery')
   })
-
   return app
 }

@@ -26,7 +26,9 @@ describe('app', () => {
         console.log(body)
         expect(err).equal(null)
         expect(res.statusCode).equal(200)
-        expect(JSON.parse(body)).have.keys('name', 'description')
+        expect(body).to.equal(
+          'https://github.com/anthonyrodarte/continuous-delivery'
+        )
       })
       done()
     })

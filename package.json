@@ -1,12 +1,16 @@
 {
   "name": "continuous-delivery",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.9.4"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha test/",
     "watch": "nodemon .",
-    "cover": "nyc --reporter=lcov npm test"
+    "cover": "nyc --reporter=lcov npm test",
+    "start": "node ."
   },
   "repository": {
     "type": "git",
